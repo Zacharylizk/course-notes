@@ -1,0 +1,14 @@
+# 你自己的课程内容与工作目录：不要把课件原图和笔记传上来
+lectures/
+work/
+*/work/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
