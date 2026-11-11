@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" width="560" height="430" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2c4a6e"/>
+    </marker>
+    <marker id="arT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#96570f"/>
+    </marker>
+  </defs>
+  <rect width="560" height="430" fill="#fff"/>
+  <g transform="translate(280 215)">
+    <!-- element -->
+    <rect x="-90" y="-90" width="180" height="180" fill="#eef2f8" stroke="#2c4a6e" stroke-width="2"/>
+    <!-- normal stresses: arrows point outward = tension positive -->
+    <line x1="-92" y1="0" x2="-150" y2="0" stroke="#2c4a6e" stroke-width="2.5" marker-end="url(#ar)"/>
+    <line x1="92" y1="0" x2="150" y2="0" stroke="#2c4a6e" stroke-width="2.5" marker-end="url(#ar)"/>
+    <line x1="0" y1="-92" x2="0" y2="-150" stroke="#2c4a6e" stroke-width="2.5" marker-end="url(#ar)"/>
+    <line x1="0" y1="92" x2="0" y2="150" stroke="#2c4a6e" stroke-width="2.5" marker-end="url(#ar)"/>
+    <text x="-150" y="-12" font-size="19" font-style="italic" fill="#2c4a6e" text-anchor="end">σ<tspan font-size="12" dy="4">x</tspan></text>
+    <text x="150" y="-12" font-size="19" font-style="italic" fill="#2c4a6e">σ<tspan font-size="12" dy="4">x</tspan></text>
+    <text x="10" y="-128" font-size="19" font-style="italic" fill="#2c4a6e">σ<tspan font-size="12" dy="4">y</tspan></text>
+    <text x="10" y="142" font-size="19" font-style="italic" fill="#2c4a6e">σ<tspan font-size="12" dy="4">y</tspan></text>
+    <!-- shear arrows on top/right faces -->
+    <line x1="90" y1="-90" x2="160" y2="-90" stroke="#96570f" stroke-width="2.2" marker-end="url(#arT)"/>
+    <line x1="-90" y1="90" x2="-160" y2="90" stroke="#96570f" stroke-width="2.2" marker-end="url(#arT)"/>
+    <line x1="90" y1="90" x2="90" y2="150" stroke="#96570f" stroke-width="2.2" marker-end="url(#arT)"/>
+    <line x1="-90" y1="-90" x2="-90" y2="-150" stroke="#96570f" stroke-width="2.2" marker-end="url(#arT)"/>
+    <text x="118" y="-98" font-size="18" font-style="italic" fill="#96570f">τ<tspan font-size="11" dy="4">xy</tspan></text>
+    <text x="100" y="146" font-size="18" font-style="italic" fill="#96570f">τ<tspan font-size="11" dy="4">yx</tspan></text>
+    <!-- axes -->
+    <line x1="-160" y1="170" x2="-90" y2="170" stroke="#7b8392" stroke-width="1.5" marker-end="url(#ar)"/>
+    <line x1="-160" y1="170" x2="-160" y2="110" stroke="#7b8392" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="-86" y="176" font-size="14" fill="#7b8392">x</text>
+    <text x="-172" y="104" font-size="14" fill="#7b8392">y</text>
+  </g>
+  <text x="280" y="410" text-anchor="middle" font-size="13" fill="#7b8392">σz = τxz = τyz = 0（面外为零）</text>
+</svg>

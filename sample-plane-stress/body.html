@@ -1,0 +1,172 @@
+<section class="hero" id="top">
+  <div class="eyebrow">5104MECH · Applied Mechanics 2 · Lecture 05</div>
+  <h1>Plane Stress <span class="zh">平面应力</span></h1>
+  <p class="subtitle">一节课只回答一个问题：当一个点的应力状态被写成 3 个数字 (σx, σy, τxy) 之后，怎么换一个方向看它、怎么判断它会不会坏。</p>
+  <div class="chips">
+    <span class="chip"><b>核心</b> 应力变换</span>
+    <span class="chip"><b>工具</b> 莫尔圆</span>
+    <span class="chip"><b>考试</b> 主应力 / 最大剪应力</span>
+    <span class="chip"><b>时长</b> 约 35 分钟</span>
+  </div>
+  <div class="hero-eq"><span class="cap">整节课的主线：换一个方向看应力</span>
+    σ<sub>x′</sub> = (σ<sub>x</sub>+σ<sub>y</sub>)/2 + (σ<sub>x</sub>−σ<sub>y</sub>)/2 · cos2θ + τ<sub>xy</sub> sin2θ
+  </div>
+</section>
+
+<section class="card" id="objectives">
+  <h2><span class="n">00</span> 这节课到底讲什么 <span class="en">The big picture</span></h2>
+  <p class="sec-lede">一句话：<b>把「一个点的受力」压缩成 3 个数字，再学会用任意方向去读它。</b>整节课的产出，就是下面这 4 组公式。</p>
+
+  <div class="roadmap">
+    <div class="rm"><b>① 应力状态</b><span>σ<sub>x</sub>、σ<sub>y</sub>、τ<sub>xy</sub> 三个分量</span></div>
+    <div class="ar">→</div>
+    <div class="rm"><b>② 斜截面平衡</b><span>切一个三角形单元体</span></div>
+    <div class="ar">→</div>
+    <div class="rm"><b>③ 变换公式</b><span>二倍角，换一个方向</span></div>
+    <div class="ar">→</div>
+    <div class="rm"><b>④ 主应力 / 莫尔圆</b><span>找到最危险的那个面</span></div>
+  </div>
+
+  <div class="fstrip">
+    <div class="fs"><b>Stress transformation · 变换</b>
+      <div class="eq">σ<sub>x′</sub> = (σ<sub>x</sub>+σ<sub>y</sub>)/2 + (σ<sub>x</sub>−σ<sub>y</sub>)/2·cos2θ + τ<sub>xy</sub>·sin2θ</div></div>
+    <div class="fs"><b>Principal stress · 主应力</b>
+      <div class="eq">σ<sub>1,2</sub> = σ<sub>avg</sub> ± R</div></div>
+    <div class="fs"><b>Principal direction · 主方向</b>
+      <div class="eq">tan2θ<sub>p</sub> = 2τ<sub>xy</sub> / (σ<sub>x</sub>−σ<sub>y</sub>)</div></div>
+    <div class="fs"><b>Max shear · 最大剪应力</b>
+      <div class="eq">τ<sub>max</sub> = R = √[((σ<sub>x</sub>−σ<sub>y</sub>)/2)<sup>2</sup> + τ<sub>xy</sub><sup>2</sup>]</div></div>
+  </div>
+
+  <h3>学完你能 <span class="en">Learning outcomes</span></h3>
+  <div class="objectives">
+    <div class="obj"><div class="k">Outcome 01</div><p>说清楚 <span class="term"><b>plane stress</b><i>平面应力</i></span> 到底忽略了什么，以及为什么薄板可以这样假设。</p></div>
+    <div class="obj"><div class="k">Outcome 02</div><p>给定 σ<sub>x</sub>、σ<sub>y</sub>、τ<sub>xy</sub>，求任意角度 θ 截面上的 σ<sub>x′</sub>、τ<sub>x′y′</sub>。</p></div>
+    <div class="obj"><div class="k">Outcome 03</div><p>求主应力、主方向、最大剪应力，并画莫尔圆核对。</p></div>
+  </div>
+  <div class="note info"><b>先修</b> 静力平衡、应力定义（σ = F/A）、三角恒等式。如果 sin2θ 和 cos2θ 不熟，先记住「二倍角」这三个字即可。</div>
+</section>
+
+<section class="card" id="concept">
+  <h2><span class="n">01</span> 什么是平面应力 <span class="en">What plane stress really means</span></h2>
+  <p class="sec-lede">一句话：<b>有一个方向的应力为零，而且剩下两个方向的应力不随厚度变化。</b></p>
+
+  <p>课件通常直接给定义，但你先想一个画面：一块很薄的板，只在板平面内受拉、受压、受剪。板的两个大表面是自由的，没有任何东西去拉它——所以垂直于板面的正应力必须是 0。</p>
+
+  <div class="def">
+    <div class="t">Definition · 定义</div>
+    <div class="en">Plane stress is a state in which the normal stress perpendicular to the plane is zero (σ<sub>z</sub> = τ<sub>xz</sub> = τ<sub>yz</sub> = 0), while σ<sub>x</sub>, σ<sub>y</sub>, τ<sub>xy</sub> may be non-zero and are assumed uniform through the thickness.</div>
+    <div class="zh"><b>平面应力</b>：垂直于板面的正应力为零，三个面外剪应力也为零；面内的 σ<sub>x</sub>、σ<sub>y</sub>、τ<sub>xy</sub> 沿厚度均匀分布。</div>
+  </div>
+
+  <div class="note warn"><b>别和平面应变搞混</b> 平面应力 ≠ 平面应变。平面应力是「面外没有力」，平面应变是「面外没有变形」（比如长坝、厚壁圆筒）。一个是 σ<sub>z</sub>=0，一个是 ε<sub>z</sub>=0，考试最爱在这里挖坑。</div>
+
+  <figure>
+    <img src="img/plane-stress.svg" alt="平面应力单元体" style="max-width:520px">
+    <figcaption><b>图 1</b>　单元体上只有面内三个独立分量：σ<sub>x</sub>、σ<sub>y</sub>、τ<sub>xy</sub>（τ<sub>yx</sub> 由力矩平衡与它相等）。</figcaption>
+  </figure>
+
+  <h3 id="transform">1.1 换一个方向看：应力变换</h3>
+  <p>假设你知道 x-y 方向上的三个分量，现在把坐标轴逆时针转 θ，问新面上的应力是多少。做法只有一个：<b>取一个三角形单元体，列静力平衡</b>。</p>
+
+  <ol class="steps">
+    <li><p>沿斜截面切一个直角三角形，斜边法线与 x 轴夹角为 θ。</p>
+      <div class="why"><b>为什么</b>：斜截面上同时有正应力和剪应力，只有把它单独隔离出来才能列平衡。</div></li>
+    <li><p>把斜边长度记为 <i>dA</i>，则两个直角边分别是 <i>dA</i>cosθ 和 <i>dA</i>sinθ。</p></li>
+    <li><p>分别沿斜面的法向和切向投影，令合力为零。</p>
+      <div class="why"><b>为什么</b>：法向平衡给出 σ<sub>x′</sub>，切向平衡给出 τ<sub>x′y′</sub>，一次搞定两个公式。</div></li>
+  </ol>
+
+  <div class="eq key">
+    <span class="cap">Stress transformation · 应力变换</span>
+    σ<sub>x′</sub> = <span class="frac"><span class="n">σ<sub>x</sub> + σ<sub>y</sub></span><span class="d">2</span></span>
+    + <span class="frac"><span class="n">σ<sub>x</sub> − σ<sub>y</sub></span><span class="d">2</span></span>cos2θ + τ<sub>xy</sub>sin2θ<br>
+    τ<sub>x′y′</sub> = −<span class="frac"><span class="n">σ<sub>x</sub> − σ<sub>y</sub></span><span class="d">2</span></span>sin2θ + τ<sub>xy</sub>cos2θ
+  </div>
+
+  <div class="note tip"><b>符号约定先定死</b> 本文统一：拉应力为正，剪应力使单元体顺时针转为正。不同教材符号可能相反，套公式前先看它怎么定义正方向。</div>
+
+  <div class="en-line"><b>Exam phrasing:</b> “Determine the normal and shear stress acting on the plane inclined at θ to the x-axis.”<span class="zh"><b>题意</b>：求与 x 轴成 θ 的斜截面上的正应力和剪应力。</span></div>
+</section>
+
+<section class="card" id="example">
+  <h2><span class="n">02</span> 例题：从分量到主应力 <span class="en">Worked example</span></h2>
+  <p class="sec-lede">先自己动笔 3 分钟，再展开。考试就按这个顺序写，步骤分很稳。</p>
+
+  <article class="example">
+    <header>
+      <span class="ex-badge">例 1</span>
+      <span class="ex-title">Given σx, σy, τxy — find principal stresses and directions</span>
+      <span class="stars">★★☆</span>
+    </header>
+    <div class="q">
+      <p class="q-en">A plane stress state has σ<sub>x</sub> = 80 MPa, σ<sub>y</sub> = −40 MPa and τ<sub>xy</sub> = 30 MPa. Determine (a) the principal stresses, (b) the principal directions, (c) the maximum in-plane shear stress.</p>
+      <p class="q-zh"><b>中文</b>：已知平面应力状态 σ<sub>x</sub> = 80 MPa、σ<sub>y</sub> = −40 MPa、τ<sub>xy</sub> = 30 MPa，求主应力、主方向、面内最大剪应力。</p>
+    </div>
+    <div class="hint">提示：先算平均应力和半径，这两个数会贯穿整题。</div>
+    <details class="sol">
+      <summary>展开解答（含每一步的理由）</summary>
+      <div class="sol-body">
+        <div class="sol-step"><div class="sn">1</div><div>平均应力：σ<sub>avg</sub> = (80 − 40)/2 = <b>20 MPa</b>；半径 R = √((80+40)²/4 + 30²) = √(3600 + 900) = <b>67.08 MPa</b>。</div></div>
+        <div class="sol-step"><div class="sn">2</div><div>主应力：σ<sub>1,2</sub> = 20 ± 67.08 → <b>σ<sub>1</sub> = 87.1 MPa，σ<sub>2</sub> = −47.1 MPa</b>。</div></div>
+        <div class="sol-step"><div class="sn">3</div><div>主方向：tan2θ<sub>p</sub> = 2τ<sub>xy</sub>/(σ<sub>x</sub>−σ<sub>y</sub>) = 60/120 = 0.5 → 2θ<sub>p</sub> = 26.57°，θ<sub>p</sub> = <b>13.3°</b>（另一个方向 +90°）。</div></div>
+        <div class="sol-step"><div class="sn">4</div><div>最大面内剪应力：τ<sub>max</sub> = R = <b>67.1 MPa</b>，作用面与主平面成 45°。</div></div>
+        <div class="answer"><b>答案</b>　σ<sub>1</sub> = 87.1 MPa，σ<sub>2</sub> = −47.1 MPa；θ<sub>p</sub> = 13.3°；τ<sub>max</sub> = 67.1 MPa。</div>
+        <p class="small">代回检验：σ<sub>1</sub> + σ<sub>2</sub> = 40 = σ<sub>x</sub> + σ<sub>y</sub>。不变量对上了，基本不会错。</p>
+      </div>
+    </details>
+    <footer><b>考点</b>　平均应力 + 半径；主方向用 tan2θ<sub>p</sub>；最后用第一不变量自查。</footer>
+  </article>
+
+  <div class="note warn"><b>易错</b>　tan2θ<sub>p</sub> 算出负角时，别直接丢掉负号。θ 的符号决定主平面往哪边转，画莫尔圆时一眼就能看出来。</div>
+</section>
+
+<section class="card" id="quiz">
+  <h2><span class="n">03</span> 一分钟自测 <span class="en">Check yourself</span></h2>
+  <div class="quiz" data-exp="主应力面上剪应力必须为零；这正是主平面的定义。" data-hint="问自己：主平面上剪应力是多少？">
+    <div class="qn">Quick check · 01</div>
+    <p class="quiz-q">主平面上，剪应力 τ 等于多少？</p>
+    <div class="opts">
+      <button class="opt" data-ok="1">A. 0</button>
+      <button class="opt">B. 最大剪应力</button>
+      <button class="opt">C. 平均应力</button>
+      <button class="opt">D. 无法确定</button>
+    </div>
+    <div class="quiz-fb"></div>
+  </div>
+  <div class="quiz" data-exp="莫尔圆上相隔 180° 代表实际平面转 90°；最大剪应力点与主应力点相隔 90°，即实际转 45°。" data-hint="莫尔圆上的角度是实际角度的 2 倍。">
+    <div class="qn">Quick check · 02</div>
+    <p class="quiz-q">最大面内剪应力所在平面，与主平面成多少度？</p>
+    <div class="opts">
+      <button class="opt">A. 0°</button>
+      <button class="opt">B. 30°</button>
+      <button class="opt" data-ok="1">C. 45°</button>
+      <button class="opt">D. 90°</button>
+    </div>
+    <div class="quiz-fb"></div>
+  </div>
+</section>
+
+<section class="card" id="summary">
+  <h2><span class="n">04</span> 一页纸带走 <span class="en">One-page summary</span></h2>
+  <div class="takeaway"><span class="lab">Takeaway</span>平面应力只有 3 个独立数字；换方向 = 代入二倍角公式；主应力 = 圆心 ± 半径；最大剪应力 = 半径。</div>
+  <div class="fgrid">
+    <div class="fcard"><div class="fk">Invariant</div><div class="ft">第一不变量</div><div class="eq">σ<sub>x</sub> + σ<sub>y</sub> = σ<sub>1</sub> + σ<sub>2</sub></div></div>
+    <div class="fcard amber"><div class="fk">Principal</div><div class="ft">主应力</div><div class="eq">σ<sub>1,2</sub> = σ<sub>avg</sub> ± R</div></div>
+    <div class="fcard green"><div class="fk">Direction</div><div class="ft">主方向</div><div class="eq">tan2θ<sub>p</sub> = 2τ<sub>xy</sub>/(σ<sub>x</sub>−σ<sub>y</sub>)</div></div>
+    <div class="fcard purple"><div class="fk">Shear</div><div class="ft">最大面内剪应力</div><div class="eq">τ<sub>max</sub> = R</div></div>
+  </div>
+  <table class="gloss">
+    <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+    <tbody>
+      <tr><td>plane stress</td><td>平面应力</td><td>面外应力为零，面内应力沿厚度均匀</td></tr>
+      <tr><td>principal stress</td><td>主应力</td><td>剪应力为零的那个面上的正应力</td></tr>
+      <tr><td>Mohr’s circle</td><td>莫尔圆</td><td>把应力变换画成一个圆，圆心平均应力、半径最大剪应力</td></tr>
+    </tbody>
+  </table>
+  <div class="checklist">
+    <label><input type="checkbox"><span>我能不看笔记写出应力变换的两个公式</span></label>
+    <label><input type="checkbox"><span>我能解释为什么主平面上 τ = 0</span></label>
+    <label><input type="checkbox"><span>我能用不变量检查答案</span></label>
+  </div>
+</section>
